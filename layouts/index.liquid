@@ -39,26 +39,28 @@
         </div>
     </section>
 
-    <section class="featured">
-        <div class="container">
-            <h2 class="featured__title" data-text="featured_collections_title">
-                {{ featured_collections_title }}
-            </h2>
+    {% if collections.size > 0 %}
+        <section class="featured">
+            <div class="container">
+                <h2 class="featured__title" data-text="featured_collections_title">
+                    {{ featured_collections_title }}
+                </h2>
 
-            <div class="featured__collections">
-                {% for collection in collections %}
-                    <a class="featured__collection" href="{{ collection.slug | collection_url }}">
-                        <img class="featured__image" src="{{ collection.products[0].images[0].path | cdn_url }}" alt="product in collection">
+                <div class="featured__collections {% if collections.size >= 3 %}featured__collections--space{% endif %}">
+                    {% for collection in collections limit:3 %}
+                        <a class="featured__collection" href="{{ collection.slug | collection_url }}">
+                            <img class="featured__image" src="{{ collection.products[0].images[0].path | cdn_url }}" alt="product in collection">
 
-                        <div class="featured__info">
-                            <h4 class="featured__info-title">{{ collection.title }}</h4>
-                            <span class="featured__info-subtitle">{{ collection.products | size }} Products in Collection</span>
-                        </div>
-                    </a>
-                {% endfor %}
+                            <div class="featured__info">
+                                <h4 class="featured__info-title">{{ collection.title }}</h4>
+                                <span class="featured__info-subtitle">{{ collection.products | size }} Products in Collection</span>
+                            </div>
+                        </a>
+                    {% endfor %}
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
+    {% endif %}
 </main>
 
 {% fragment 'footers/default' %}

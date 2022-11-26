@@ -5,6 +5,10 @@
   width: 100%;
 }
 
+.footer--white {
+  background-color: #fff;
+}
+
 .products__footer {
   background-color: #fff;
   margin-top: 12px;

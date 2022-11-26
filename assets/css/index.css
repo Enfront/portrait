@@ -138,6 +138,10 @@
   overflow: hidden;
 }
 
+.featured__collections--space {
+  justify-content: space-between;
+}
+
 .featured__collection {
   align-items: center;
   border: 1px solid rgba(101, 99, 95, .2);

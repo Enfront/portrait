@@ -50,8 +50,12 @@
   }
 
   .featured__collections {
+    align-items: flex-start;
     flex-direction: column;
-    justify-content: flex-start;
+  }
+
+  .featured__collection {
+   width: 100%;
   }
 
   .products,
