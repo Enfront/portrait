@@ -1,0 +1,22 @@
+{% fragment 'headers/partial' %}
+
+<main>
+    <div class="authentication">
+        <section class="authentication__left">
+            <div class="authentication__form">
+                <div class="authentication__header">
+                    <h1>Thank you!</h1>
+                    <span>We&apos;re happy you&apos;re here!</span>
+                </div>
+
+                <p>Please activate your account with the email that was sent to you! You will not be able to log in without doing so.</p>
+            </div>
+
+            {% fragment 'footers/absolute' %}
+        </section>
+
+        <section class="authentication__right">
+            <img src="{{ 'auth.jpg' | media_url }}" alt="Abstract authentication background">
+        </section>
+    </div>
+</main>

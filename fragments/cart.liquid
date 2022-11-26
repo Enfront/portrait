@@ -1,0 +1,65 @@
+<div class="overlay"></div>
+
+<aside class="drawer">
+    <div class="drawer__sidebar">
+        <div class="drawer__header">
+            <h2>Cart</h2>
+
+            <svg onclick="toggleSidebar()" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                 width="25" height="25"
+                 viewBox="0 0 50 50">
+                <path d="M 7.71875 6.28125 L 6.28125 7.71875 L 23.5625 25 L 6.28125 42.28125 L 7.71875 43.71875 L 25 26.4375 L 42.28125 43.71875 L 43.71875 42.28125 L 26.4375 25 L 43.71875 7.71875 L 42.28125 6.28125 L 25 23.5625 Z"></path>
+            </svg>
+        </div>
+
+        <div class="quick-cart">
+            {% for item in cart['items'] %}
+                <div class="quick-cart__item">
+                    <div class="quick-cart__item-info">
+                        <img class="quick-cart__item-image" src="{{ item.images[0].path | cdn_url }}" alt="Main product image">
+
+                        <div class="quick-cart__item-text">
+                            <div class="quick-cart__top">
+                                <h3>{{ item.name }}</h3>
+
+                                {% form 'cart_remove', product: item %}
+                                    <button class="quick-cart__remove" type="submit">
+                                        <img src="{{ 'trash.svg' | media_url }}" alt="Remove from cart icon">
+                                    </button>
+                                {% endform %}
+                            </div>
+
+                            <div class="quick-cart__bottom">
+                                <span>Quantity {{ item.quantity }} &#8226; {{ item.price | money }}</span>
+                                <span>{{ item.price | times: item.quantity | money }}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+
+            <div class="quick-cart__totals">
+                <span>Subtotal:</span>
+                <span>{{ cart.total | money }}</span>
+            </div>
+
+            <div class="quick-cart__actions">
+                <a class="quick-cart__button quick-cart__button--inverted" href="/cart">
+                    View Cart
+                </a>
+
+                {% if cart['items_amount'] > 0 %}
+                    {% form 'checkout' %}
+                        <button class="quick-cart__button" type="submit">
+                            Checkout
+                        </button>
+                    {% endform %}
+                {% endif %}
+
+                <button class="quick-cart__link" onclick="toggleSidebar()">
+                    <span>Continue Shopping</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</aside>

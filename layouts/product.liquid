@@ -1,0 +1,68 @@
+{% fragment 'headers/full' %}
+
+<main class="product-page">
+    <section class="product-page__left">
+        {% if extra_images %}
+            <div class="product-page__extra-images" data-display="extra_images">
+                {% for image in product.images %}
+                    <img class="product-page__extra-image" src="{{ image.path | cdn_url }}" onclick="openImageModal(this)" alt="{{ product.name }} alternate" />
+                {% endfor %}
+            </div>
+        {% endif %}
+
+        <img class="product-page__image" src="{{ product.images[0].path | cdn_url }}" alt="{{ product.name }} main">
+    </section>
+
+    <section class="product-page__right">
+        <a class="product-page__back-button" href="/collections">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 16 16">
+              <path fill="#161412" fill-rule="evenodd" d="m7.546 13.438.529.532 1.064-1.057-.528-.532-3.767-3.792h8.781v-1.5H4.77l3.562-3.836.51-.55-1.098-1.02-.51.55-4.737 5.1-.49.528.507.51 5.032 5.067Z" clip-rule="evenodd"/>
+            </svg>
+
+            <span class="product-page__back featured__title">Back</span>
+        </a>
+
+        <h1 class="product-page__title">{{ product.name }}</h1>
+        <span class="product-page__subtitle">{{ product.ref_id }}</span>
+
+        {% if product.description != '' %}
+            <div class="product-page__description">
+                <div>{{ product.description }}</div>
+            </div>
+        {% endif %}
+
+        <span class="products__price">{{ product.price | money }}</span>
+
+        <div class="product-page__quantities">
+            <span class="product-page__quantity">Minimum Purchase Quantity: {{ product.min_order_quantity }}</span>
+            <span class="product-page__quantity">Maximum Purchase Quantity: {{ product.max_order_quantity }}</span>
+        </div>
+
+        {% form 'cart_add', product %}
+            <div class="product-page__actions">
+                {% if product.available %}
+                    <input type="number"
+                           value="{{ product.min_order_quantity }}"
+                           min="{{ product.min_order_quantity }}"
+                           max="{{ product.max_order_quantity }}"
+                           id="quantity" name="quantity"
+                           placeholder="Quantity"
+                           aria-label="quantity"
+                    />
+
+                    <button class="products-page__add-to-cart">
+                        Add To Cart
+                    </button>
+                {% else %}
+                    <button class="products-page__add-to-cart products-page__add-to-cart--oos" disabled>
+                        Out of Stock
+                    </button>
+                {% endif %}
+            </div>
+        {% endform %}
+
+        <span class="products-page__taxes">Taxes will be applied upon checkout</span>
+
+        {% fragment 'footers/absolute' %}
+    </section>
+</main>

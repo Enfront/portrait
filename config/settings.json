@@ -1,0 +1,65 @@
+[
+  {
+    "name": "Index Settings",
+    "page": "index",
+    "settings": [
+      {
+        "type": "text",
+        "attribute": "text",
+        "id": "banner_title",
+        "label": "Banner Title",
+        "placeholder": "Banner Title",
+        "default": "Featured Products"
+      },
+      {
+        "type": "text",
+        "attribute": "text",
+        "id": "featured_collections_title",
+        "label": "Featured Collections Title",
+        "placeholder": "Featured Collections",
+        "default": "Featured Collections"
+      }
+    ]
+  },
+  {
+    "name": "Product Settings",
+    "page": "products",
+    "settings": [
+      {
+        "type": "text",
+        "attribute": "text",
+        "id": "products_title",
+        "label": "Products Page Title",
+        "placeholder": "Products Page Title",
+        "default": "All Products"
+      }
+    ]
+  },
+  {
+    "name": "Collection Settings",
+    "page": "collections",
+    "settings": [
+      {
+        "type": "text",
+        "attribute": "text",
+        "id": "collections_title",
+        "label": "Collections Page Title",
+        "placeholder": "Collections Page Title",
+        "default": "All Collection"
+      }
+    ]
+  },
+  {
+    "name": "Product Settings",
+    "page": "product",
+    "settings": [
+      {
+        "type": "checkbox",
+        "attribute": "display",
+        "id": "extra_images",
+        "label": "Show Alternate Images",
+        "default": true
+      }
+    ]
+  }
+]

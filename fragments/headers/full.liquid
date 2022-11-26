@@ -1,0 +1,37 @@
+<header class="header">
+    <span><a href="/">{{ shop.name | downcase }}.</a></span>
+
+    <ul class="header__links">
+        <li><a href="/products">All Products</a></li>
+        <li><a href="/collections">All Collections</a></li>
+
+        {% if user.username %}
+            <li>
+                {% form 'logout' %}
+                    Logout - {{ user.username }}
+                {% endform %}
+            </li>
+        {% else %}
+            <li><a href="/register">Register</a></li>
+            <li><a href="/login">Login</a></li>
+        {% endif %}
+
+        <li onclick="toggleSidebar()">
+            {% if cart['items_amount'] > 0 %}
+                <p class="header__amount">{{ cart['items_amount'] }}</p>
+            {% endif %}
+            <img src="{{ 'cart.svg' | media_url }}" alt="Open cart icon">
+        </li>
+    </ul>
+
+    <div>
+        <div class="header__mobile-cart" onclick="toggleSidebar()">
+            {% if cart['items_amount'] > 0 %}
+                <p class="header__amount">{{ cart['items_amount'] }}</p>
+            {% endif %}
+            <img src="{{ 'cart.svg' | media_url }}" alt="Open cart icon">
+        </div>
+
+        <img src="{{ 'menu.svg' | media_url }}" onclick="toggleMobileMenu()" alt="Mobile menu icon">
+    </div>
+</header>

@@ -1,0 +1,14 @@
+.products__image--set {
+  background-color: #F3F3F3;
+  display: flex;
+  flex-wrap: wrap;
+  height: 264px;
+  overflow: hidden;
+  width: 345px;
+}
+
+.products__collection-image {
+  height: 50%;
+  object-fit: cover;
+  width: 50%;
+}

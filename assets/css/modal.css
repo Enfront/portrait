@@ -1,0 +1,35 @@
+.modal {
+  display: none;
+  height: 100%;
+  left: 0;
+  overflow: auto;
+  padding-top: 100px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.modal__content {
+  display: block;
+  margin: auto;
+  max-width: 700px;
+  width: 80%;
+}
+
+.modal__close {
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  position: absolute;
+  right: 16px;
+  top: 16px;
+  transition: 0.3s;
+}
+
+.modal__close:hover,
+.modal__close:focus {
+  color: #bbb;
+  cursor: pointer;
+  text-decoration: none;
+}

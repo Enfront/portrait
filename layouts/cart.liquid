@@ -1,0 +1,76 @@
+{% fragment 'headers/full' %}
+    <main class="cart container">
+        <section class="banner">
+            <h1 class="banner__title">Cart</h1>
+        </section>
+
+        <section class="cart">
+            {% for item in cart['items'] %}
+                <div class="quick-cart__item">
+                    <div class="quick-cart__item-info">
+                        <img class="quick-cart__item-image" src="{{ item.images[0].path | cdn_url }}" alt="Main product image">
+
+                        <div class="quick-cart__item-text">
+                            <div class="quick-cart__top">
+                                <h3>{{ item.name }}</h3>
+
+                                {% form 'cart_remove', product: item %}
+                                    <button class="quick-cart__remove" type="submit">
+                                        <img src="{{ 'trash.svg' | media_url }}" alt="Remove from cart icon">
+                                    </button>
+                                {% endform %}
+                            </div>
+
+                            <span>{{ item.ref_id }}</span>
+
+                            <div class="quick-cart__bottom">
+                                <span>Quantity {{ item.quantity }} &#8226; {{ item.price | money }}</span>
+                                <span>{{ item.price | times: item.quantity | money }}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+
+            <div class="quick-cart__totals">
+                <span class="quick-cart__total">Subtotal: {{ cart.total | money }}</span>
+                <span class="quick-cart__taxes">Taxes and shipping calculated at checkout</span>
+
+                {% form 'checkout' %}
+                    <button class="quick-cart__button" type="submit">
+                        Check Out
+                    </button>
+                {% endform %}
+            </div>
+        </section>
+
+        <section>
+            <h2 class="cart__subtitle">You may also like</h2>
+
+            <div class="products products--all">
+                {% for product in products limit:3 %}
+                    {% if product.available == false %}
+                        {% continue %}
+                    {% endif %}
+
+                    <a class="products__product" href="{{ product.slug | product_url }}">
+                        <img class="products__image" src="{{ product.images[0].path | cdn_url }}" alt="{{ product.name }}" />
+
+                        <div class="products__info">
+                            <div>
+                                <h3 class="products__name">{{ product.name }}</h3>
+                                <span class="products__stock">{{ product.stock }} In Stock</span>
+                            </div>
+
+                            {% if product.available %}
+                                <span class="products__price">{{ product.price |  money }}</span>
+                            {% else %}
+                                <span class="products__action--oos">Out of Stock</span>
+                            {% endif %}
+                        </div>
+                    </a>
+                {% endfor %}
+            </div>
+        </section>
+    </main>
+{% fragment 'footers/absolute' %}

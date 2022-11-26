@@ -1,0 +1,64 @@
+{% fragment 'headers/full' %}
+
+<main>
+    <section class="products">
+        <div class="banner container">
+            <h1 class="banner__title" data-text="banner_title">{{ banner_title }}</h1>
+
+            <svg class="banner__swipe" xmlns="http://www.w3.org/2000/svg" width="44" height="24" fill="none" viewBox="0 0 44 24">
+                <path fill="#161412" fill-rule="evenodd" d="m32.326 19.805-.44.443-.887-.88.44-.444 6.373-6.416-33.318-.258-.75-.006.012-1.5.75.006 33.37.259-6.008-6.47-.425-.457.916-.851.425.458 7.105 7.65.408.44-.423.427-7.548 7.599Z" clip-rule="evenodd"/>
+            </svg>
+        </div>
+
+        <div class="products__swiper swiper">
+            <div class="products__wrapper swiper-wrapper">
+                {% for product in products %}
+                    <a class="products__product swiper-slide" href="{{ product.slug | product_url }}">
+                        <img class="products__image" src="{{ product.images[0].path | cdn_url }}" alt="{{ product.name }}" />
+                        <h3 class="products__name">{{ product.name }}</h3>
+                        <span class="products__stock">{{ product.stock }} In Stock</span>
+
+                        <div class="products__hidden-info">
+                            <span class="products__price">{{ product.price |  money }}</span>
+
+                            {% form 'cart_add', product %}
+                                {% if product.available %}
+                                    <button class="products__action" type="submit">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 20 20">
+                                            <path fill="#fff" fill-rule="evenodd" d="M3.926 2.708H1.667v1.25h1.785l2.323 8.251.128.456h10.405l.136-.442 2.076-6.79.247-.809H6.376v1.25h10.702l-1.695 5.541H6.85L4.527 3.164 4.4 2.708h-.473Zm3.931 11.726a.804.804 0 1 0 0 1.608.804.804 0 0 0 0-1.608Zm-2.053.804a2.054 2.054 0 1 1 4.107 0 2.054 2.054 0 0 1-4.107 0Zm8.72-.804a.804.804 0 1 0 0 1.607.804.804 0 0 0 0-1.607Zm-2.053.804a2.054 2.054 0 1 1 4.107 0 2.054 2.054 0 0 1-4.107 0Z" clip-rule="evenodd"/>
+                                        </svg>
+                                    </button>
+                                {% else %}
+                                    <span class="products__action--oos">Out of Stock</span>
+                                {% endif %}
+                            {% endform %}
+                        </div>
+                    </a>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <section class="featured">
+        <div class="container">
+            <h2 class="featured__title" data-text="featured_collections_title">
+                {{ featured_collections_title }}
+            </h2>
+
+            <div class="featured__collections">
+                {% for collection in collections %}
+                    <a class="featured__collection" href="{{ collection.slug | collection_url }}">
+                        <img class="featured__image" src="{{ collection.products[0].images[0].path | cdn_url }}" alt="product in collection">
+
+                        <div class="featured__info">
+                            <h4 class="featured__info-title">{{ collection.title }}</h4>
+                            <span class="featured__info-subtitle">{{ collection.products | size }} Products in Collection</span>
+                        </div>
+                    </a>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+</main>
+
+{% fragment 'footers/default' %}

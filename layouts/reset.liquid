@@ -1,0 +1,44 @@
+{% fragment 'headers/partial' %}
+
+<main>
+    <div class="authentication">
+        <section class="authentication__left">
+            <div class="authentication__form">
+                <div class="authentication__header">
+                    <h1>Reset Password</h1>
+                    <span>Don't forget this one!</span>
+                </div>
+
+                {% form 'reset_password' %}
+                    <div class="authentication__form">
+                        {% if form_errors and form_errors['form'] %}
+                            <p class="authentication__error">{{ form_errors['form'].message }}</p>
+                        {% endif %}
+
+                        <label for="password">Password</label>
+                        <input type="password" name="password" id="password" placeholder="Password" required />
+
+                        {% if form_errors and form_errors['password'] %}
+                            <p class="authentication__error">{{ form_errors['password'].message }}</p>
+                        {% endif %}
+
+                        <label for="confirm-password">Confirm Password</label>
+                        <input type="password" name="confirm-password" id="confirm-password" placeholder="Confirm Password" required />
+
+                        {% if form_errors and form_errors['confirm-password'] %}
+                            <p class="authentication__error">{{ form_errors['confirm-password'].message }}</p>
+                        {% endif %}
+
+                        <button type="submit">Change Password</button>
+                    </div>
+                {% endform %}
+            </div>
+
+            {% fragment 'footers/absolute' %}
+        </section>
+
+        <section class="authentication__right">
+            <img src="{{ 'auth.jpg' | media_url }}" alt="Abstract authentication background">
+        </section>
+    </div>
+</main>

@@ -1,0 +1,129 @@
+.authentication {
+  display: flex;
+  height: calc(100vh - 92px);
+}
+
+.authentication__left {
+  align-content: center;
+  color: #161412;
+  display: flex;
+  font-family: 'Lato', sans-serif;
+  font-size: 1rem;
+  justify-content: center;
+  position: relative;
+  width: 50%
+}
+
+.authentication__error {
+  color: #d00000;
+  margin-bottom: 16px;
+}
+
+.authentication__form {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 460px;
+}
+
+.authentication__form p {
+  font-family: 'Lato', sans-serif;
+  font-size: 1rem;
+}
+
+.authentication__label-duo {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+.authentication__label-duo a {
+  color: #126db3;
+  font-size: 0.875rem;
+  text-decoration: none;
+}
+
+.authentication__form--duo {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.authentication__form--duo div {
+  display: flex;
+  flex-direction: column;
+  width: calc(50% - 6px);
+}
+
+.authentication__form form label {
+  margin-bottom: 4px;
+}
+
+.authentication__form form input {
+  border: 1px solid #D2CFC8;
+  border-radius: 3px;
+  font-family: 'Karla', sans-serif;
+  height: 38px;
+  margin-bottom: 24px;
+  padding: 4px 12px;
+}
+
+.authentication__form form input:focus {
+  border: 1px solid #161412;
+  outline: none;
+}
+
+.authentication__form form button {
+  background-color: #161412;
+  border: none;
+  border-radius: 3px;
+  color: #fff;
+  cursor: pointer;
+  font-family: 'Karla', sans-serif;
+  font-size: 1rem;
+  padding: 12px;
+  width: 100%;
+}
+
+.authentication__header {
+  color: #161412;
+  font-family: 'Karla', sans-serif;
+  font-size: 1.3125rem;
+  line-height: 1.2;
+  margin-bottom: 32px;
+}
+
+.authentication__header h1 {
+  font-size: 2.25rem;
+  margin-bottom: 12px;
+}
+
+.authentication__action {
+  color: #161412;
+  font-family: 'Karla', sans-serif;
+  font-size: 1rem;
+  line-height: 1;
+  margin-top: 16px;
+  text-align: center;
+}
+
+.authentication__action a {
+  color: #161412;
+}
+
+.authentication__right {
+  width: 50%;
+}
+
+.authentication__right img {
+  bottom: 0;
+  height: 100vh;
+  left: 50%;
+  object-fit: cover;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 50vw;
+}

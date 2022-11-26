@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ shop.name }}</title>
+
+    {{ header_content }}
+
+    {{ 'reset.css' | style_url | stylesheet_tag }}
+    {{ 'header.css' | style_url | stylesheet_tag }}
+    {{ 'cart.css' | style_url | stylesheet_tag }}
+    {{ 'modal.css' | style_url | stylesheet_tag }}
+    {{ 'index.css' | style_url | stylesheet_tag }}
+    {{ 'authentication.css' | style_url | stylesheet_tag }}
+    {{ 'collections.css' | style_url | stylesheet_tag }}
+    {{ 'product.css' | style_url | stylesheet_tag }}
+    {{ 'products.css' | style_url | stylesheet_tag }}
+    {{ 'footer.css' | style_url | stylesheet_tag }}
+    {{ 'base.css' |  style_url | stylesheet_tag }}
+    {{ 'mobile.css' | style_url | stylesheet_tag }}
+
+    {{ 'https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css' | stylesheet_tag }}
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Karla:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+{{ layout_content }}
+
+{% fragment 'cart' %}
+{% fragment 'expand-image' %}
+{% fragment 'mobile-nav' %}
+
+{{ 'base.js' | script_url | script_tag }}
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+<script>
+    const width = window.innerWidth;
+    const numberOfSlides = width > 768 ? (width / 398) : 1;
+    const spaceBetweenSlides = width > 768 ? 30 : 0;
+
+    var swiper = new Swiper(".products__swiper", {
+        slidesPerView: numberOfSlides,
+        spaceBetween: spaceBetweenSlides,
+        centeredSlides: true,
+        loop: true,
+        autoplay: {
+            disableOnInteraction: false,
+            pauseOnMouseEnter: true,
+        },
+        navigation: {
+            nextEl: ".banner__swipe",
+        },
+    });
+</script>
+</body>
+
+</html>

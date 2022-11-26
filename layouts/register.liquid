@@ -1,0 +1,90 @@
+{% fragment 'headers/partial' %}
+
+<main>
+    <div class="authentication">
+        <section class="authentication__left">
+            <div class="authentication__form">
+                <div class="authentication__header">
+                    <h1>Register</h1>
+                    <span>Hi, pleasure to meet you!</span>
+                </div>
+
+                {% form 'register' %}
+                    <div class="authentication__form authentication__form--duo">
+                        {% if form_errors and form_errors['form'] %}
+                            <p class="authentication__error">
+                                {{ form_errors['form'].message }}
+                            </p>
+                        {% endif %}
+
+                        <div>
+                            <label for="email">Email</label>
+                            <input type="email" name="email" id="email" placeholder="Email" required>
+
+                            {% if form_errors and form_errors['email'] %}
+                                <p class="authentication__error">{{ form_errors['email']['message'] }}</p>
+                            {% endif %}
+                        </div>
+
+                        <div>
+                            <label for="username">Username</label>
+                            <input type="text" name="username" id="username" placeholder="Username" required />
+
+                            {% if form_errors and form_errors['username'] %}
+                                <p class="authentication__error">{{ form_errors['username']['message'] }}</p>
+                            {% endif %}
+                        </div>
+
+                        <div>
+                            <label for="first-name">First Name</label>
+                            <input type="text" name="first-name" id="first-name" placeholder="First Name" required />
+
+                            {% if form_errors and form_errors['first_name'] %}
+                                <p class="authentication__error">{{ form_errors['first_name']['message'] }}</p>
+                            {% endif %}
+                        </div>
+
+                        <div>
+                            <label for="last-name">Last Name</label>
+                            <input type="text" name="last-name" id="last-name" placeholder="Last Name" required/>
+
+                            {% if form_errors and form_errors['last_name'] %}
+                                <p class="authentication__error">{{ form_errors['last_name']['message'] }}</p>
+                            {% endif %}
+                        </div>
+
+                        <div>
+                            <label for="password">Password</label>
+                            <input type="password" name="password" id="password" placeholder="Password" required />
+
+                            {% if form_errors and form_errors['password'] %}
+                                <p class="authentication__error">{{ form_errors['password']['message'] }}</p>
+                            {% endif %}
+                        </div>
+
+                        <div>
+                            <label for="confirm-password">Confirm Password</label>
+                            <input type="password" name="confirm-password" id="confirm-password" placeholder="Confirm Password" required />
+
+                            {% if form_errors and form_errors['confirm-password'] %}
+                                <p class="authentication__error">{{ form_errors['confirm-password']['message'] }}</p>
+                            {% endif %}
+                        </div>
+
+                        <button type="submit">Submit</button>
+                    </div>
+                {% endform %}
+
+                <p class="authentication__action">
+                    Already have an account? <a href="/login">Login here!</a>
+                </p>
+            </div>
+
+            {% fragment 'footers/absolute' %}
+        </section>
+
+        <section class="authentication__right">
+            <img src="{{ 'auth.jpg' | media_url }}" alt="Abstract authentication background">
+        </section>
+    </div>
+</main>

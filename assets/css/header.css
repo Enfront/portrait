@@ -1,0 +1,101 @@
+.header {
+  align-items: center;
+  display: flex;
+  height: 92px;
+  justify-content: space-between;
+  margin-bottom: 44px;
+  min-height: 92px;
+  padding: 16px 98px;
+  position: relative;
+  width: 100%;
+}
+
+.header--no-margin {
+  margin-bottom: 0;
+}
+
+.header span {
+  font-family: 'Karla', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 400;
+}
+
+.header span a  {
+  color: #161412;
+  text-decoration: none;
+}
+
+.header__links {
+  align-items: center;
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.header__links li {
+ position: relative;
+}
+
+.header__links li a,
+.header__links li form {
+  color: #161412;
+  cursor: pointer;
+  display: flex;
+  font-family: 'Karla', sans-serif;
+  font-size: 0.875rem;
+  letter-spacing: .88px;
+  margin-left: 14px;
+  margin-right: 14px;
+  position: relative;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.header__links li img {
+  cursor: pointer;
+  margin-left: 14px;
+}
+
+.header__links li a::after,
+.header__links li form::after {
+  background: currentcolor;
+  border-radius: 5px;
+  bottom: 0;
+  content: '';
+  height: 0.05em;
+  left: 0;
+  transform: scaleX(0);
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+  position: absolute;
+  width: 100%;
+}
+
+.header__links li a:hover::after,
+.header__links li form:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+.header__amount {
+  align-items: center;
+  background-color: #F3F3F3;
+  border: 1px solid #161412;
+  border-radius: 50%;
+  color: #161412;
+  cursor: pointer;
+  display: flex;
+  font-family: 'Karla', sans-serif;
+  font-size: 0.875rem;
+  height: 18px;
+  justify-content: center;
+  position: absolute;
+  right: -8px;
+  top: -8px;
+  width: 18px;
+}
+
+.header div {
+  display: none;
+}

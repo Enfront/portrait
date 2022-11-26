@@ -1,0 +1,41 @@
+{% fragment 'headers/partial' %}
+
+<main>
+    <div class="authentication">
+        <section class="authentication__left">
+            <div class="authentication__form">
+                <div class="authentication__header">
+                    <h1>Forgot Password</h1>
+                    <span>Don&apos;t worry, we have you covered!</span>
+                </div>
+
+                {% form 'forgot_password' %}
+                    <div class="authentication__form">
+                        {% if form_errors and form_errors['form'] %}
+                            <p class="authentication__error">{{ form_errors['form'].message }}</p>
+                        {% endif %}
+
+                        <label for="email">Email</label>
+                        <input type="email" name="email" id="email" placeholder="Email" required />
+
+                        {% if form_errors and form_errors['email'] %}
+                            <p class="authentication__error">{{ form_errors['email'].message }}</p>
+                        {% endif %}
+
+                        <button type="submit">Recover Password</button>
+                    </div>
+                {% endform %}
+
+                <p class="authentication__action">
+                    Don't have an account? <a href="/register">Sign up for free!</a>
+                </p>
+            </div>
+
+            {% fragment 'footers/absolute' %}
+        </section>
+
+        <section class="authentication__right">
+            <img src="{{ 'auth.jpg' | media_url }}" alt="Abstract authentication background">
+        </section>
+    </div>
+</main>

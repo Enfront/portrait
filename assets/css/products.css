@@ -1,0 +1,27 @@
+.products--all {
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 64px 32px;
+  justify-content: flex-start;
+  margin-bottom: 0;
+  margin-top: 48px;
+  padding: 0 0 92px 0;
+}
+
+.products--all .products__product {
+  max-width: 345px;
+  padding: 0;
+}
+
+.products--all .products__product:hover {
+  box-shadow: none;
+}
+
+.products--all .products__stock {
+  margin: 0;
+}
+
+.products--all .products__info {
+  display: flex;
+  justify-content: space-between;
+}

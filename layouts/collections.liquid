@@ -1,0 +1,31 @@
+{% fragment 'headers/full' %}
+
+<main>
+    <div class="container">
+        <section class="banner">
+            <h1 class="banner__title" data-text="collections_title">{{ collections_title }}</h1>
+            <span class="banner__subtitle">{{ collections | size }} Collections Found</span>
+        </section>
+
+        <section class="products products--all">
+            {% for collection in collections %}
+                <a class="products__product" href="/collections/{{ collection.slug }}">
+                    <span class="products__image products__image--set">
+                    {% for product in collection.products %}
+                        <img class="products__collection-image" src="{{ product.images[0].path | cdn_url }}" alt="{{ product.name }}" />
+                    {% endfor %}
+                    </span>
+
+                    <div class="products__info">
+                        <div>
+                            <h3 class="products__name">{{ collection.title }}</h3>
+                            <span class="products__stock">{{ collection.products | size }} Products in Collection</span>
+                        </div>
+                    </div>
+                </a>
+            {% endfor %}
+        </section>
+    </div>
+</main>
+
+{% fragment 'footers/absolute' %}

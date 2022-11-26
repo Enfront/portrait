@@ -1,0 +1,135 @@
+@media only screen and (max-width: 768px) {
+  .header{
+    padding: 16px;
+  }
+
+  .header__links {
+    display: none;
+  }
+
+  .header div {
+    display: flex;
+  }
+
+  .header__mobile-cart {
+    cursor: pointer;
+    margin-right: 18px;
+    position: relative;
+  }
+
+  .modal__content {
+    width: 100%;
+  }
+
+  .banner {
+    justify-content: center;
+    margin-top: 0;
+  }
+
+  .banner__title {
+    font-size: 2.5rem;
+  }
+
+  .banner__subtitle,
+  .banner__swipe {
+    display: none;
+  }
+
+  .drawer__sidebar--active {
+    width: 100%;
+  }
+
+  .swiper .products__product {
+    max-width: initial;
+    padding: 0 21px;
+  }
+
+  .featured {
+    margin-top: 64px;
+    padding: 64px 12px;
+  }
+
+  .featured__collections {
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  .products,
+  .products--all {
+    gap: 32px 12px;
+    margin-top: 18px;
+  }
+
+  .products--all .products__info {
+    flex-direction: column;
+  }
+
+  .products__product {
+    flex-grow: 0;
+    flex-shrink: 1;
+    height: 260px;
+    width: calc(50% - 6px);
+  }
+
+  .products__stock {
+    margin-bottom: 0;
+  }
+
+  .products__info .products__price {
+    color: #65635F;
+    font-family: 'Lato', sans-serif;
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 400;
+  }
+
+  .products__image--set {
+    width: 100%;
+  }
+
+  .product-page {
+    flex-direction: column-reverse;
+    gap: 32px;
+  }
+
+  .product-page__left {
+    flex-direction: column-reverse;
+    justify-content: flex-end;
+    margin: 0 12px 48px 12px;
+    min-height: min-content;
+    padding: 12px;
+    width: calc(100% - 24px);
+  }
+
+  .product-page__image {
+    width: 100%;
+  }
+
+  .product-page__extra-images {
+    flex-direction: row;
+    gap: 12px;
+    height: fit-content;
+    margin: 0;
+    padding: 0;
+  }
+
+  .product-page__right {
+    justify-content: flex-start;
+    min-height: fit-content;
+    padding: 0 12px;
+    position: initial;
+  }
+
+  .product-page__actions {
+    flex-direction: column;
+  }
+
+  .authentication__left {
+    padding: 36px 24px 48px;
+    width: 100%;
+  }
+
+  .authentication__right {
+    display: none;
+  }
+}

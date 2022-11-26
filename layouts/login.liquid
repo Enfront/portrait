@@ -1,0 +1,51 @@
+{% fragment 'headers/partial' %}
+
+<main>
+    <div class="authentication">
+        <section class="authentication__left">
+            <div class="authentication__form">
+                <div class="authentication__header">
+                    <h1>Login</h1>
+                    <span>Hi, welcome back!</span>
+                </div>
+
+                {% form 'login' %}
+                    <div class="authentication__form">
+                        {% if form_errors and form_errors['form'] %}
+                            <p class="authentication__error">{{ form_errors['form'].message }}</p>
+                        {% endif %}
+
+                        <label for="email">Email</label>
+                        <input type="text" name="email" id="email" placeholder="Email" required />
+
+                        {% if form_errors and form_errors['email'] %}
+                            <p class="authentication__error">{{ form_errors['email'].message }}</p>
+                        {% endif %}
+
+                        <div class="authentication__label-duo">
+                            <label for="password">Password</label>
+                            <a href="/forgot">Forgot Password?</a>
+                        </div>
+                        <input type="password" name="password" id="password" placeholder="Password" required />
+
+                        {% if form_errors and form_errors['password'] %}
+                            <p class="authentication__error">{{ form_errors['password'].message }}</p>
+                        {% endif %}
+
+                        <button type="submit">Login</button>
+                    </div>
+                {% endform %}
+
+                <p class="authentication__action">
+                    Don't have an account? <a href="/register">Sign up for free!</a>
+                </p>
+            </div>
+
+            {% fragment 'footers/absolute' %}
+        </section>
+
+        <section class="authentication__right">
+            <img src="{{ 'auth.jpg' | media_url }}" alt="Abstract authentication background">
+        </section>
+    </div>
+</main>
