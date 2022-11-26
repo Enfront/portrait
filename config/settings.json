@@ -45,7 +45,7 @@
         "id": "collections_title",
         "label": "Collections Page Title",
         "placeholder": "Collections Page Title",
-        "default": "All Collection"
+        "default": "All Collections"
       }
     ]
   },
